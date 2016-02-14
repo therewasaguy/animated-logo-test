@@ -4,6 +4,7 @@
 	<head>
 		<!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/SVG-Morpheus/0.1.8/svg-morpheus.js"></script> -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg.js"></script>
+		<script src="http://cdn.tonejs.org/latest/Tone.min.js"></script>
 
 		<style>
 			svg:hover {
@@ -57,6 +58,7 @@
 	document.getElementById('shape-canvas').addEventListener('click', function() {
 		animateElt(100);
 		setTimeout(animateElt, 100);
+		snd.start();
 	});
 
 
@@ -80,6 +82,9 @@
 			// prep to do it again
 			shifts++;
 	}
+
+	var snd = new Tone.Player('audio/banana-shaker_test_01.mp3');
+	snd.toMaster();
 
 	</script>
 
