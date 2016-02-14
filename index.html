@@ -71,11 +71,24 @@
 		s.node.setAttribute('style', 'display:none;');
 	});
 
-	document.getElementById('shape-canvas').addEventListener('click', function() {
-		animateElt(10);
-		setTimeout(animateElt, 100);
+
+	var scheduledAnim;
+	document.getElementById('shape-canvas').addEventListener('mousedown', trigger);
+	document.getElementById('shape-canvas').addEventListener('touchstart', trigger);
+
+	function trigger() {
+		anim1();
+	}
+
+	function anim1() {
 		snd.triggerAttackRelease();
-	});
+		animateElt(30);
+		scheduledAnim = setTimeout(anim2, 100, false);
+	}
+
+	function anim2() {
+		animateElt(500);
+	}
 
 
 	function animateElt(_duration) {
@@ -87,14 +100,15 @@
 				var props = closedShapes[i].attr();
 
 				var className = props.class;
+
 				// do not copy these props
 				delete props.class;
 				delete props.width;
-				// console.log(className);
+				elt.stop();
 				elt.animate(props,duration, mina.bounce);
-				// elt.node.setAttribute('class', className);
 				i++;
 			});
+
 			// prep to do it again
 			shifts++;
 	}
