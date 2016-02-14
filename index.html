@@ -7,6 +7,20 @@
 		<script src="http://cdn.tonejs.org/latest/Tone.min.js"></script>
 
 		<style>
+			svg {
+				-webkit-user-select: none;
+				 -moz-user-select: none;
+				 -ms-user-select: none;
+				 user-select: none;
+			}
+			svg::-moz-selection {
+				background-color: transparent;
+				color: #000;
+			}
+			svg::selection {
+				background-color: transparent;
+				color: #000;
+			}
 			svg:hover {
 				cursor:pointer;
 			}
