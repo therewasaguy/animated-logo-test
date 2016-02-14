@@ -58,7 +58,7 @@
 	document.getElementById('shape-canvas').addEventListener('click', function() {
 		animateElt(100);
 		setTimeout(animateElt, 100);
-		snd.start();
+		snd.triggerAttackRelease();
 	});
 
 
@@ -83,7 +83,7 @@
 			shifts++;
 	}
 
-	var snd = new Tone.Player('audio/banana-shaker_test_01.mp3');
+	var snd = new Tone.Sampler('audio/banana-shaker_test_01.mp3');
 	snd.toMaster();
 
 	</script>
